@@ -1,7 +1,7 @@
 package com.example.weatherforecast.Utilites
 
-import android.telecom.Call
 import com.example.weatherforecast.Models.WeatherModel
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 

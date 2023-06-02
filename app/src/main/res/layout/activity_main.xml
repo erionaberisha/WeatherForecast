@@ -44,7 +44,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_search"
+                android:background="#00000000"
                 android:drawableStart="@drawable/ic_round_search_24"
                 android:drawablePadding="20dp"
                 android:drawableTint="@color/black"
@@ -52,7 +52,6 @@
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:padding="5dp"
-                android:visibility="visible"
                 android:textColor="@color/black">
 
             </EditText>
@@ -61,7 +60,7 @@
                 android:id="@+id/current_location"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_baseline_my_location_24"
+                android:src="@drawable/baseline_location_on_24"
                 android:layout_marginEnd="10dp"
                 android:clickable="true"
                 android:focusable="true">
@@ -154,6 +153,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="12"
+                            android:fontFamily="sans-serif"
                             android:textColor="@color/white"
                             android:textSize="85sp">
 
@@ -220,17 +220,12 @@
                 android:layout_gravity="bottom"
                 android:layout_margin="25dp"
                 app:cardCornerRadius="25dp"
+                android:background="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/app_bar_layout"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:id="@+id/options_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -386,7 +381,7 @@
                     </LinearLayout>
 
 
-                </LinearLayout>
+
 
             </androidx.cardview.widget.CardView>
 

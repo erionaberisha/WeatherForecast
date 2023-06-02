@@ -48,8 +48,6 @@ class MainActivity : AppCompatActivity() {
     private val apiKey = "99165db875f7e7cd58f62c3f2564e863"
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -296,7 +294,7 @@ class MainActivity : AppCompatActivity() {
 
             minTemp.text = "Min " + k2c(body?.main?.tempMin!!) + "°"
 
-            temp.text = "" + k2c(body?.main?.temp!!) + "°C"
+            temp.text = "" + k2c(body?.main?.temp!!) + "°"
 
             weatherTitle.text = body.weather[0].main
 
@@ -306,7 +304,7 @@ class MainActivity : AppCompatActivity() {
 
             citySearch.setText(body.name)
 
-            feelsLike.text = "Feels Like" + k2c(body.main.feelsLike) + "°C"
+            feelsLike.text = "Feels Like:" + k2c(body.main.feelsLike) + "°C"
 
             windValue.text = body.wind.speed.toString() + "m/s"
 
