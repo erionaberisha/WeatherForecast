@@ -205,12 +205,9 @@
 
                         </TextView>
 
-
                     </LinearLayout>
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             </LinearLayout>
 
@@ -220,7 +217,8 @@
                 android:layout_gravity="bottom"
                 android:layout_margin="25dp"
                 app:cardCornerRadius="25dp"
-                android:background="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/app_bar_layout"
                 app:layout_constraintTop_toTopOf="parent">
@@ -231,6 +229,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:background="@android:color/transparent"
                         android:weightSum="3">
 
                         <LinearLayout
@@ -240,7 +239,6 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
-
 
                             <ImageView
                                 android:id="@+id/pressure_img"
@@ -379,10 +377,6 @@
 
 
                     </LinearLayout>
-
-
-
-
             </androidx.cardview.widget.CardView>
 
 
@@ -398,7 +392,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </ProgressBar>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

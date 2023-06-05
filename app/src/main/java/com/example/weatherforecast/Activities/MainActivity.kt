@@ -1,5 +1,4 @@
 package com.example.weatherforecast.Activities
-
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -39,15 +38,11 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
-
     private lateinit var currentLocation: Location
     private lateinit var fusedLocationProvider: FusedLocationProviderClient
     private val LOCATION_REQUEST_CODE = 101
 
-
     private val apiKey = "99165db875f7e7cd58f62c3f2564e863"
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -93,8 +88,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-
     private fun getCityWeather(city: String) {
 
         binding.progressBar.visibility = View.VISIBLE
@@ -134,8 +127,6 @@ class MainActivity : AppCompatActivity() {
             })
 
     }
-
-
     private fun fetchCurrentLocationWeather(latitude: String, longitude: String) {
 
         ApiUtilities.getApiInterface()?.getCurrentWeatherData(latitude, longitude, apiKey)
@@ -158,18 +149,12 @@ class MainActivity : AppCompatActivity() {
 
 
                 }
-
                 override fun onFailure(call: Call<WeatherModel>, t: Throwable) {
-
 
                 }
 
             })
-
-
     }
-
-
     private fun getCurrentLocation() {
 
         if (checkPermissions()) {
@@ -222,7 +207,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
     private fun requestPermission() {
 
         ActivityCompat.requestPermissions(
@@ -235,7 +219,6 @@ class MainActivity : AppCompatActivity() {
         )
 
     }
-
     private fun isLocationEnabled(): Boolean {
 
         val locationManager: LocationManager = getSystemService(Context.LOCATION_SERVICE)
@@ -244,7 +227,6 @@ class MainActivity : AppCompatActivity() {
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
-
     private fun checkPermissions(): Boolean {
 
         if (ActivityCompat.checkSelfPermission(
@@ -261,7 +243,6 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -307,15 +288,9 @@ class MainActivity : AppCompatActivity() {
             feelsLike.text = "Feels Like:" + k2c(body.main.feelsLike) + "°C"
 
             windValue.text = body.wind.speed.toString() + "m/s"
-
-
         }
-
         updateUI(body.weather[0].id)
-
-
     }
-
     @RequiresApi(Build.VERSION_CODES.O)
     private fun ts2td(ts: Long): String {
 
@@ -331,7 +306,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
     private fun k2c(t: Double): Double {
 
         var intTemp = t
@@ -340,75 +314,45 @@ class MainActivity : AppCompatActivity() {
 
         return intTemp.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
     }
-
-
     private fun updateUI(id: Int) {
 
         binding.apply {
 
-
             when (id) {
 
-                //Thunderstorm
                 in 200..232 -> {
 
-                    weatherImg.setImageResource(R.drawable.ic_clear_day)
-
+                    weatherImg.setImageResource(R.drawable.cloudrainthunder)
 
                 }
-
-                //Drizzle
                 in 300..321 -> {
-
                     weatherImg.setImageResource(R.drawable.ic_few_clouds)
-
                 }
-
-                //Rain
                 in 500..531 -> {
 
                     weatherImg.setImageResource(R.drawable.ic_rainy_weather)
 
                 }
-
-                //Snow
                 in 600..622 -> {
 
                     weatherImg.setImageResource(R.drawable.ic_snow_weather)
-
                 }
-
-                //Atmosphere
                 in 701..781 -> {
 
                     weatherImg.setImageResource(R.drawable.ic_broken_clouds)
-
-
                 }
-
-                //Clear
                 800 -> {
 
                     weatherImg.setImageResource(R.drawable.ic_clear_day)
-
-
-
                 }
-
-                //Clouds
                 in 801..804 -> {
 
                     weatherImg.setImageResource(R.drawable.ic_cloudy_weather)
 
-
                 }
-
-                //unknown
                 else -> {
 
                     weatherImg.setImageResource(R.drawable.ic_unknown)
-
-
 
 
                 }
@@ -421,10 +365,4 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-
-
 }
-
-
-
