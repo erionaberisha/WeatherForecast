@@ -33,7 +33,6 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
 import java.util.*
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -83,10 +82,7 @@ class MainActivity : AppCompatActivity() {
 
             getCurrentLocation()
 
-
         }
-
-
     }
     private fun getCityWeather(city: String) {
 
@@ -365,4 +361,79 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+//    private fun fetchFiveDayForecast(latitude: String, longitude: String) {
+//        ApiUtilities.getApiInterface()?.getFiveDayForecastData(latitude, longitude, apiKey)
+//            ?.enqueue(object : Callback<ForecastModel> {
+//                override fun onResponse(
+//                    call: Call<ForecastModel>,
+//                    response: Response<ForecastModel>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        binding.progressBar.visibility = View.GONE
+//                        response.body()?.let {
+//                            setForecastData(it)
+//                        }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<ForecastModel>, t: Throwable) {
+//                }
+//            })
+//    }
+//    private fun setForecastData(forecast: ForecastModel) {
+//
+//    }
+//    private fun fetchCurrentLocationWeather(latitude: String, longitude: String) {
+//        ApiUtilities.getApiInterface()?.getCurrentWeatherData(latitude, longitude, apiKey)
+//            ?.enqueue(object : Callback<WeatherModel> {
+//                override fun onResponse(call: Call<WeatherModel>, response: Response<WeatherModel>) {
+//                    if (response.isSuccessful) {
+//                        binding.progressBar.visibility = View.GONE
+//                        response.body()?.let {
+//                            setData(it)
+//                            fetchFiveDayForecast(latitude, longitude) // Fetch forecast data
+//                        }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<WeatherModel>, t: Throwable) {
+//                    // Handle failure
+//                }
+//            })
+//    }
+//
+//    private fun getCityWeather(city: String) {
+//        binding.progressBar.visibility = View.VISIBLE
+//        ApiUtilities.getApiInterface()?.getCityWeatherData(city, apiKey)
+//            ?.enqueue(object : Callback<WeatherModel> {
+//                override fun onResponse(call: Call<WeatherModel>, response: Response<WeatherModel>) {
+//                    if (response.isSuccessful) {
+//                        binding.progressBar.visibility = View.GONE
+//                        response.body()?.let {
+//                            setData(it)
+//                            fetchFiveDayForecast(it.coord.lat.toString(), it.coord.lon.toString()) // Fetch forecast data
+//                        }
+//                    } else {
+//                        Toast.makeText(
+//                            this@MainActivity, "No City Found",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                        binding.progressBar.visibility = View.GONE
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<WeatherModel>, t: Throwable) {
+//                    // Handle failure
+//                }
+//            })
+//    }
+//    @RequiresApi(Build.VERSION_CODES.O)
+//    private fun setData(body: WeatherModel) {
+//
+//        binding.apply {
+//        }
+//
+//        updateUI(body.weather[0].id)
+//    }
+
 }
